@@ -102,7 +102,7 @@ class DDPG():
         self.critic_net = CriticNet(self.state_num, self.action_num, bn).to(self.device)
         self.critic_opt = optim.Adam(self.critic_net.parameters(), lr=learning_rate)
         
-        # Critic Target
+        # Target Critic
         self.critic_target_net = CriticNet(self.state_num, self.action_num, bn).to(self.device)
         self.critic_target_net.load_state_dict(self.critic_net.state_dict())
         
